@@ -1,4 +1,5 @@
 ﻿using DiTutorials.Libs.Contracts;
+using MyProject.Contract;
 
 namespace DiTutorials.Libs.Models
 {
@@ -11,6 +12,11 @@ namespace DiTutorials.Libs.Models
         public void Movement(IMovement movement)
         {
             movement.Move();
+        }
+
+        public void Pelumi(IPelumi pelumi)
+        {
+            pelumi.KnowMe();
         }
     }
 }

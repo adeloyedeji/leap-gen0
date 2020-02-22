@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DiTutorials.Libs\DiTutorials.Libs.csproj" />
+    <ProjectReference Include="..\MyProject\MyProject.csproj" />
   </ItemGroup>
 
 
