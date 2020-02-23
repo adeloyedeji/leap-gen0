@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DiTutorials.Libs.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MyProject.Contract;
 
 namespace DiTutorials.Controllers
 {
@@ -19,17 +20,22 @@ namespace DiTutorials.Controllers
 
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly IReverse<string> _reverse;
+        private readonly IMovement _movement;
+        private readonly IPelumi _pelumi;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, IReverse<string> reverse)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IReverse<string> reverse, IMovement movement, IPelumi pelumi)
         {
             _logger = logger;
             _reverse = reverse;
+            _movement = movement;
+            _pelumi = pelumi;
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            var reversedString = _reverse.Reverse("abc");
+            var reversedString = _reverse.Reverse("abcdef");
+            Console.WriteLine(reversedString);
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
